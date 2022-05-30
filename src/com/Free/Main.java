@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
 
+    //Starts the game, with te points and elections
     public static void juego() {
         Random random = new Random();
         int casas = 1, accion;
@@ -54,6 +55,7 @@ public class Main {
                 continue;
             }
 
+            //Player actions can do
             switch (accion) {
                 case 1:
                     casas++;
