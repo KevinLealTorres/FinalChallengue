@@ -6,24 +6,24 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
 
-    public static void juego(){
+    public static void juego() {
         Random random = new Random();
         int casas = 1, accion;
-        Heroe heroe = new Heroe(3,0);
-        Villano villano = new Villano(3,0);
+        Heroe heroe = new Heroe(3, 0);
+        Villano villano = new Villano(3, 0);
 
-        while(true){
-            if(heroe.rescatados()) villano.vida--;
+        while (true) {
+            if (heroe.rescatados()) villano.vida--;
             villano.atrapados();
 
-            if(heroe.vida == 0) {
+            if (heroe.vida == 0) {
                 System.out.println("""
                               /| ________________
                         O|===|* >________________> HAZ PERDIDO
                               \\|    \s""".indent(12));
                 break;
             }
-            if(villano.vida == 0){
+            if (villano.vida == 0) {
                 System.out.println("""
                               /| ________________
                         O|===|* >________________> ¡HAZ GANADO!
@@ -42,25 +42,25 @@ public class Main {
             System.out.println("¡Tu turno!:\n1)construir casas\n2)rescatar hada\n3)Huir\n >>> ");
             try {
                 accion = sc.nextInt();
-            } catch(Exception ignored){
+            } catch (Exception ignored) {
                 System.out.println("Ese poder sólo está en la mano de ancianos ancestrales, use otros poderes");
                 continue;
             }
 
-            if((random.nextInt(0, 100) >= 95)){
+            if ((random.nextInt(0, 100) >= 95)) {
                 System.out.println("¡Haz reaccionado tarde!");
                 heroe.recibirDanio(villano.herir());
                 villano.atrapado++;
                 continue;
             }
 
-            switch(accion){
+            switch (accion) {
                 case 1:
                     casas++;
                     break;
 
                 case 2:
-                    if (casas > 0){
+                    if (casas > 0) {
                         heroe.rescatados++;
                         casas--;
                     } else System.out.println("No puedes porque no hay casas, ¡Haz más!");
@@ -83,6 +83,7 @@ public class Main {
                 """, heroe.rescatados, villano.atrapado, heroe.vida, villano.vida);
     }
 
+    //this is the game's menu
     public static void main(String[] args) {
 
         int respuesta;
