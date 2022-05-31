@@ -1,7 +1,7 @@
 package com.Free;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.Random; // I use random because I need it for enemy's hit
+import java.util.Scanner; // For input actions
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
@@ -13,6 +13,7 @@ public class Main {
         Heroe heroe = new Heroe(3, 0);
         Villano villano = new Villano(3, 0);
 
+        //This is the game's heart, an infinite loop until someone loses
         while (true) {
             if (heroe.rescatados()) villano.vida--;
             villano.atrapados();
@@ -40,6 +41,7 @@ public class Main {
                             |____________________________________|______________________________________|
                     """, heroe.vida, heroe.rescatados, villano.atrapado, villano.vida, casas);
 
+            //player's actions
             System.out.println("¡Tu turno!:\n1)construir casas\n2)rescatar hada\n3)Huir\n >>> ");
             try {
                 accion = sc.nextInt();
@@ -48,6 +50,7 @@ public class Main {
                 continue;
             }
 
+            //Random enemy hit
             if ((random.nextInt(0, 100) >= 95)) {
                 System.out.println("¡Haz reaccionado tarde!");
                 heroe.recibirDanio(villano.herir());
@@ -55,7 +58,7 @@ public class Main {
                 continue;
             }
 
-            //Player actions can do
+            //Player actions to input
             switch (accion) {
                 case 1:
                     casas++;
@@ -108,6 +111,7 @@ public class Main {
                    |    l  I   \\.     ,/
                  _/j  L l\\_!  _//^---^\\\\_   \s""".indent(3));
 
+        //Player Menu
         System.out.println("¡Bienvenido al juego! Escoge tu opción:");
         while(true){
             System.out.println("\n1)Jugar\n2)Salir\n>>> ");
