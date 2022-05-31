@@ -1,1 +1,0 @@
-These files doesn't have purpose, is only for learn Git and GitHub :)
