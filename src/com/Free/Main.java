@@ -112,7 +112,7 @@ public class Main {
                  _/j  L l\\_!  _//^---^\\\\_   \s""".indent(3));
 
         //Player Menu
-        System.out.println("¡Bienvenido al juego! Escoge tu opción:");
+        System.out.println("¡Bienvenido al juego, noble caballero! Escoge tu opción:");
         while(true){
             System.out.println("\n1)Jugar\n2)Salir\n>>> ");
 
